@@ -1,0 +1,6 @@
+c:\users\jake\documents\visual studio 2013\Projects\udpServer\udpServer\bin\Debug\udpServer.exe.config
+c:\users\jake\documents\visual studio 2013\Projects\udpServer\udpServer\bin\Debug\udpServer.exe
+c:\users\jake\documents\visual studio 2013\Projects\udpServer\udpServer\bin\Debug\udpServer.pdb
+c:\users\jake\documents\visual studio 2013\Projects\udpServer\udpServer\obj\Debug\udpServer.csprojResolveAssemblyReference.cache
+c:\users\jake\documents\visual studio 2013\Projects\udpServer\udpServer\obj\Debug\udpServer.exe
+c:\users\jake\documents\visual studio 2013\Projects\udpServer\udpServer\obj\Debug\udpServer.pdb
