@@ -31,6 +31,7 @@ namespace udpServer
                         case UdpEventType.Connected:
                             Console.WriteLine("Client connect from {0}", ev.Connection.RemoteEndPoint);
                             Clients.Add(ev.Connection);
+                            ev.Connection.Send("YourPlayer:"+Clients.Count+";");
                             break;
                         case UdpEventType.Disconnected:
                             Clients.Remove(ev.Connection);
