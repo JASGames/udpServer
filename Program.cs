@@ -17,6 +17,8 @@ namespace udpServer
         {
             _socket = UdpSocket.Create<UdpPlatformManaged, ServerSerializer>();
             _socket.Start(new UdpEndPoint(UdpIPv4Address.Any, 14000));
+            
+            Console.WriteLine("Status: "+_socket.State);
 
             UdpEvent ev;
 
