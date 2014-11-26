@@ -39,6 +39,12 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="udpkit">
+      <HintPath>..\..\..\..\GitHub\udpkit\bin\managed\release\udpkit.dll</HintPath>
+    </Reference>
+    <Reference Include="udpkit.platform.managed">
+      <HintPath>..\..\..\..\GitHub\udpkit\bin\managed\release\udpkit.platform.managed.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
