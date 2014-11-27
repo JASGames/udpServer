@@ -14,6 +14,20 @@ namespace udpServer
         Velocity
     }
 
+    public class NetworkVector
+    {
+        public float x;
+        public float y;
+        public float z;
+
+        public NetworkVector(float x, float y, float z)
+        {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+    }
+
     public class Packet
     {
         public Command command;

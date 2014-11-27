@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Polenter.SharpSerializer.Portable">
-      <HintPath>D:\Downloads\sharp_serializer_dll\sharpSerializerDll\Polenter.SharpSerializer.Portable.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
