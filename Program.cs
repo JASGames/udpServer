@@ -75,7 +75,7 @@ namespace udpServer
             //command
             stream.WriteByte((byte)p.command);
             //data
-            if (p.command == Command.Position)
+            if (p.command == Command.Position || p.command == Command.Velocity)
             {
                 var vec = (NetworkVector)p.data;
                 stream.WriteFloat(vec.x);
@@ -99,7 +99,7 @@ namespace udpServer
             var packet = new Packet(Command.Id, null, 0);
             packet.command = (Command)stream.ReadByte();
             //data
-            if (packet.command == Command.Position)
+            if (packet.command == Command.Position || packet.command == Command.Velocity)
             {
                 var vec = new NetworkVector(stream.ReadFloat(), stream.ReadFloat(), stream.ReadFloat());
                 packet.data = vec;

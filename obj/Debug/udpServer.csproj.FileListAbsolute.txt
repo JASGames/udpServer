@@ -5,3 +5,4 @@ c:\users\jake\documents\visual studio 2013\Projects\udpServer\udpServer\obj\Debu
 c:\users\jake\documents\visual studio 2013\Projects\udpServer\udpServer\obj\Debug\udpServer.pdb
 C:\Users\Jake\Documents\Visual Studio 2013\Projects\udpServer\udpServer\bin\Debug\udpkit.dll
 C:\Users\Jake\Documents\Visual Studio 2013\Projects\udpServer\udpServer\bin\Debug\udpkit.platform.managed.dll
+C:\Users\Jake\Documents\Visual Studio 2013\Projects\udpServer\udpServer\obj\Debug\udpServer.csprojResolveAssemblyReference.cache
