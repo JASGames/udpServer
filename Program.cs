@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Polenter.Serialization;
 using UdpKit;
 
 namespace udpServer
@@ -68,8 +70,13 @@ namespace udpServer
         public override bool Pack(UdpStream stream, ref object o)
         {
             // cast to string and get bytes
-            string msg = (string)o;
-            byte[] bytes = GetBytes(msg);
+            Packet p = (Packet)o;
+            var s = new MemoryStream();
+
+            var serializer = new SharpSerializer(true);
+            serializer.Serialize(p, s);
+
+            byte[] bytes = s.ToArray();
 
             // write length and bytes into buffer
             stream.WriteInt(bytes.Length);
@@ -84,23 +91,13 @@ namespace udpServer
             byte[] bytes = new byte[stream.ReadInt()];
             stream.ReadByteArray(bytes);
 
+            var s = new MemoryStream(bytes);
+
             // convert bytes to string
-            o = GetString(bytes);
+            var serializer = new SharpSerializer(true);
+            o = serializer.Deserialize(s);
+
             return true;
-        }
-
-        byte[] GetBytes(string str)
-        {
-            byte[] bytes = new byte[str.Length * sizeof(char)];
-            System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
-            return bytes;
-        }
-
-        string GetString(byte[] bytes)
-        {
-            char[] chars = new char[bytes.Length / sizeof(char)];
-            System.Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
-            return new string(chars);
         }
     }
 }
