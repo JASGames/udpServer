@@ -42,7 +42,7 @@ namespace udpServer
                             SendToOtherPlayers(ev.Object as string, ev.Connection);
                             break;
                         case UdpEventType.ObjectLost:
-                            ev.Connection.Send(ev.Object);
+                            //ev.Connection.Send(ev.Object);
                             break;
                     }
                 }
