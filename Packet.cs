@@ -11,8 +11,11 @@ namespace udpServer
         Id,
         Guid,
         Position,
-        Velocity
+        Velocity,
+        Rotation,
+        AngularVelocity
     }
+
 
     public class NetworkVector
     {
