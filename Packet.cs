@@ -13,7 +13,8 @@ namespace udpServer
         Position,
         Velocity,
         Rotation,
-        AngularVelocity
+        AngularVelocity,
+        Engine
     }
 
 
