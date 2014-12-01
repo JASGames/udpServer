@@ -10,13 +10,9 @@ namespace udpServer
     {
         Id,
         Guid,
-        Position,
-        Velocity,
-        Rotation,
-        AngularVelocity,
+        Rigidbody,
         Engine
     }
-
 
     public class NetworkVector
     {
@@ -29,6 +25,22 @@ namespace udpServer
             this.x = x;
             this.y = y;
             this.z = z;
+        }
+    }
+
+    public class NetworkRigidbody
+    {
+        public NetworkVector pos;
+        public NetworkVector rot;
+        public NetworkVector vel;
+        public NetworkVector ang;
+
+        public NetworkRigidbody(NetworkVector pos, NetworkVector rot, NetworkVector vel, NetworkVector ang)
+        {
+            this.pos = pos;
+            this.rot = rot;
+            this.vel = vel;
+            this.ang = ang;
         }
     }
 

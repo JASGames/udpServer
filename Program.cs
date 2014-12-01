@@ -75,12 +75,32 @@ namespace udpServer
             //command
             stream.WriteByte((byte)p.command);
             //data
-            if (p.command == Command.Position || p.command == Command.Velocity || p.command == Command.Rotation || p.command == Command.AngularVelocity || p.command == Command.Engine)
+            if (p.command == Command.Engine)
             {
                 var vec = (NetworkVector)p.data;
                 stream.WriteFloat(vec.x);
                 stream.WriteFloat(vec.y);
                 stream.WriteFloat(vec.z);
+            }
+            else if (p.command == Command.Rigidbody)
+            {
+                var rigidbody = (NetworkRigidbody)p.data;
+
+                stream.WriteFloat(rigidbody.pos.x);
+                stream.WriteFloat(rigidbody.pos.y);
+                stream.WriteFloat(rigidbody.pos.z);
+
+                stream.WriteFloat(rigidbody.rot.x);
+                stream.WriteFloat(rigidbody.rot.y);
+                stream.WriteFloat(rigidbody.rot.z);
+
+                stream.WriteFloat(rigidbody.vel.x);
+                stream.WriteFloat(rigidbody.vel.y);
+                stream.WriteFloat(rigidbody.vel.z);
+
+                stream.WriteFloat(rigidbody.ang.x);
+                stream.WriteFloat(rigidbody.ang.y);
+                stream.WriteFloat(rigidbody.ang.z);
             }
             else if (p.command == Command.Id)
             {
@@ -99,10 +119,19 @@ namespace udpServer
             var packet = new Packet(Command.Id, null, 0);
             packet.command = (Command)stream.ReadByte();
             //data
-            if (packet.command == Command.Position || packet.command == Command.Velocity || packet.command == Command.Rotation || packet.command == Command.AngularVelocity || packet.command == Command.Engine)
+            if (packet.command == Command.Engine)
             {
                 var vec = new NetworkVector(stream.ReadFloat(), stream.ReadFloat(), stream.ReadFloat());
                 packet.data = vec;
+            }
+            else if (packet.command == Command.Rigidbody)
+            {
+                var pos = new NetworkVector(stream.ReadFloat(), stream.ReadFloat(), stream.ReadFloat());
+                var rot = new NetworkVector(stream.ReadFloat(), stream.ReadFloat(), stream.ReadFloat());
+                var vel = new NetworkVector(stream.ReadFloat(), stream.ReadFloat(), stream.ReadFloat());
+                var ang = new NetworkVector(stream.ReadFloat(), stream.ReadFloat(), stream.ReadFloat());
+
+                packet.data = new NetworkRigidbody(pos, rot, vel, ang);
             }
             else if (packet.command == Command.Id)
             {
