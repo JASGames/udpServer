@@ -1,1 +1,0 @@
-﻿@reboot echo "hi";
