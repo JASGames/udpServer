@@ -1,1 +1,1 @@
-﻿@reboot cd /root/github/udpServer/; git pull; xbuild; crontab -u root cronjob.txt; mono bin/Debug/udpServer.exe;
+﻿@reboot echo "hi";
