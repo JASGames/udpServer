@@ -2,5 +2,5 @@
 
 git pull;
 xbuild;
-mono bin/Debug/udpServer.exe&;
+mono bin/Debug/udpServer.exe;
 
